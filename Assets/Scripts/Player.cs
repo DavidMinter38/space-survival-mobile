@@ -17,4 +17,9 @@ public class Player : MonoBehaviour
     {
         playerRigidBody.AddForce(new Vector2(Input.acceleration.x * speed * Time.deltaTime, Input.acceleration.y * speed * Time.deltaTime));
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        FindObjectOfType<GameManager>().EndGame();
+    }
 }
