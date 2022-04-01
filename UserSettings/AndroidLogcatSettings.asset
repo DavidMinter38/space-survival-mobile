@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "RF8MC0822NE",
         "name": "com.DefaultCompany.space_survival",
-        "processId": 9593,
+        "processId": 22114,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -60,6 +60,12 @@
             "deviceId": "RF8MC0822NE",
             "name": "com.DefaultCompany.space_survival",
             "processId": 9593,
+            "exited": false
+        },
+        {
+            "deviceId": "RF8MC0822NE",
+            "name": "com.DefaultCompany.space_survival",
+            "processId": 22114,
             "exited": false
         }
     ],

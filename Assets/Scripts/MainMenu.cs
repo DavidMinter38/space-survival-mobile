@@ -22,6 +22,6 @@ public class MainMenu : MonoBehaviour
 
     public void OpenHighScoreMenu()
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(3);
     }
 }
