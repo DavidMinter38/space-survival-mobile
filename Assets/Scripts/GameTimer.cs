@@ -28,8 +28,8 @@ public class GameTimer : MonoBehaviour
         timeText.text = currentTime;
     }
 
-    public string GetTime()
+    public float GetTime()
     {
-        return currentTime;
+        return timer;
     }
 }

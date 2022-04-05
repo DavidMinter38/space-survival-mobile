@@ -8,7 +8,12 @@ public class GameManager : MonoBehaviour
 {
     static GameManager instance;
 
-    string newestTime = null;
+    float newestTime = 0;
+    float[] topFiveBestTimes = new float[] { 120, 90, 80, 70, 60 };
+    //TODO on startup, get the best times from a database.
+
+    bool highScoreAchieved = false;
+    bool paused = false;
 
     private void Awake()
     {
@@ -30,7 +35,10 @@ public class GameManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-
+        if(scene.buildIndex == 1)
+        {
+            highScoreAchieved = false;
+        }
     }
 
     void Update()
@@ -41,11 +49,54 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         newestTime = FindObjectOfType<GameTimer>().GetTime();
+        CompareTimes();
+        //TODO send high scores to database
         SceneManager.LoadScene(2);
     }
 
-    public string GetNewestTime()
+    private void CompareTimes()
+    {
+        float originalBestTime = 0;
+        for (int i=0; i<topFiveBestTimes.Length; i++)
+        {
+            if (highScoreAchieved)
+            {
+                float timeStorage = topFiveBestTimes[i];
+                topFiveBestTimes[i] = originalBestTime;
+                originalBestTime = timeStorage;
+            }
+            else
+            {
+                if (topFiveBestTimes[i] <= newestTime)
+                {
+                    //New high score
+                    originalBestTime = topFiveBestTimes[i];
+                    topFiveBestTimes[i] = newestTime;
+                    highScoreAchieved = true;
+                }
+            }
+        }
+    }
+
+    public float GetNewestTime()
     {
         return newestTime;
+    }
+
+    public string ConvertTimeToString(float time)
+    {
+        int minutes = Mathf.FloorToInt(time / 60);
+        float seconds = time % 60;
+        return (minutes.ToString("00") + ":" + seconds.ToString("00"));
+    }
+
+    public float[] GetBestTimes()
+    {
+        return topFiveBestTimes;
+    }
+
+    public bool WasHighScoreAchieved()
+    {
+        return highScoreAchieved;
     }
 }

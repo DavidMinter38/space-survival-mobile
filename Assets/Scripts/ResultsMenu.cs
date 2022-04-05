@@ -9,9 +9,14 @@ public class ResultsMenu : MonoBehaviour
     [SerializeField]
     Text resultText;
 
+    [SerializeField]
+    Text newHighScoreText;
+
     public void OnEnable()
     {
-        resultText.text = "Your time: " + FindObjectOfType<GameManager>().GetNewestTime();
+        float resultTime = FindObjectOfType<GameManager>().GetNewestTime();
+        resultText.text = "Your time: " + FindObjectOfType<GameManager>().ConvertTimeToString(resultTime);
+        newHighScoreText.gameObject.SetActive(FindObjectOfType<GameManager>().WasHighScoreAchieved());
     }
 
     public void Retry()

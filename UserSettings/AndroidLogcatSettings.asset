@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "RF8MC0822NE",
         "name": "com.DefaultCompany.space_survival",
-        "processId": 22114,
+        "processId": 3711,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -11,61 +11,49 @@
         {
             "deviceId": "RF8MC0822NE",
             "name": "com.DefaultCompany.space_survival",
-            "processId": 4356,
+            "processId": 29211,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8MC0822NE",
+            "name": "com.DefaultCompany.space_survival",
+            "processId": 30127,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8MC0822NE",
+            "name": "com.DefaultCompany.space_survival",
+            "processId": 30583,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8MC0822NE",
+            "name": "com.DefaultCompany.space_survival",
+            "processId": 31358,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8MC0822NE",
+            "name": "com.DefaultCompany.space_survival",
+            "processId": 1274,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8MC0822NE",
+            "name": "com.DefaultCompany.space_survival",
+            "processId": 2775,
             "exited": false
         },
         {
             "deviceId": "RF8MC0822NE",
             "name": "com.DefaultCompany.space_survival",
-            "processId": 4922,
+            "processId": 3383,
             "exited": false
         },
         {
             "deviceId": "RF8MC0822NE",
             "name": "com.DefaultCompany.space_survival",
-            "processId": 5648,
-            "exited": false
-        },
-        {
-            "deviceId": "RF8MC0822NE",
-            "name": "com.DefaultCompany.space_survival",
-            "processId": 6287,
-            "exited": false
-        },
-        {
-            "deviceId": "RF8MC0822NE",
-            "name": "com.DefaultCompany.space_survival",
-            "processId": 6776,
-            "exited": false
-        },
-        {
-            "deviceId": "RF8MC0822NE",
-            "name": "com.DefaultCompany.space_survival",
-            "processId": 7842,
-            "exited": false
-        },
-        {
-            "deviceId": "RF8MC0822NE",
-            "name": "com.DefaultCompany.space_survival",
-            "processId": 8823,
-            "exited": false
-        },
-        {
-            "deviceId": "RF8MC0822NE",
-            "name": "com.DefaultCompany.space_survival",
-            "processId": 9255,
-            "exited": false
-        },
-        {
-            "deviceId": "RF8MC0822NE",
-            "name": "com.DefaultCompany.space_survival",
-            "processId": 9593,
-            "exited": false
-        },
-        {
-            "deviceId": "RF8MC0822NE",
-            "name": "com.DefaultCompany.space_survival",
-            "processId": 22114,
+            "processId": 3711,
             "exited": false
         }
     ],

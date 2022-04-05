@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private int speed = 300;
+    private readonly int speed = 300;
 
     Rigidbody2D playerRigidBody;
 
