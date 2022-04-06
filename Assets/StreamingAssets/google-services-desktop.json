@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "378568204493",
+    "firebase_url": "FirebaseDatabase.DefaultInstance.RootReference",
+    "project_id": "space-survival-mobile",
+    "storage_bucket": "space-survival-mobile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:378568204493:android:5a15aff5c26d80ade34984",
+        "android_client_info": {
+          "package_name": "com.david.spacesurvivalmobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "378568204493-6glbo6m6de30psu1tus7tfue2oi5uhmt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDryd-HO1oKFmIcdN72eOtRMzrbK-CBfQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "378568204493-6glbo6m6de30psu1tus7tfue2oi5uhmt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

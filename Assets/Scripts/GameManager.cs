@@ -7,13 +7,13 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     static GameManager instance;
+    FirebaseHandler firebaseHandler;
 
     float newestTime = 0;
     float[] topFiveBestTimes = new float[] { 120, 90, 80, 70, 60 };
     //TODO on startup, get the best times from a database.
 
     bool highScoreAchieved = false;
-    bool paused = false;
 
     private void Awake()
     {
@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        firebaseHandler = gameObject.AddComponent<FirebaseHandler>();
     }
 
     private void OnEnable()
@@ -76,6 +78,14 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+
+        string[] newHighScores = new string[topFiveBestTimes.Length];
+        for(int i=0; i< newHighScores.Length; i++)
+        {
+            newHighScores[i] = ConvertTimeToString(topFiveBestTimes[i]);
+        }
+
+        firebaseHandler.UploadData(newHighScores);
     }
 
     public float GetNewestTime()
