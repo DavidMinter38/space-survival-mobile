@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     FirebaseHandler firebaseHandler;
 
     float newestTime = 0;
-    float[] topFiveBestTimes = new float[] { 120, 90, 80, 70, 60 };
+    float[] topFiveBestTimes = new float[] { 120, 90, 80, 60, 0 };
     //TODO on startup, get the best times from a database.
 
     bool highScoreAchieved = false;
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        firebaseHandler = gameObject.AddComponent<FirebaseHandler>();
+        firebaseHandler = gameObject.GetComponent<FirebaseHandler>();
     }
 
     private void OnEnable()
@@ -37,7 +37,9 @@ public class GameManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if(scene.buildIndex == 1)
+        UpdateScoresFromDatabase();
+
+        if (scene.buildIndex == 1)
         {
             highScoreAchieved = false;
         }
@@ -46,6 +48,18 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
+    }
+
+    private void UpdateScoresFromDatabase()
+    {
+        string[] newScores = firebaseHandler.GetScores();
+        for (int i = 0; i < newScores.Length; i++)
+        {
+            if (newScores[i] != null)
+            {
+                topFiveBestTimes[i] = float.Parse(newScores[i]);
+            }
+        }
     }
 
     public void EndGame()
@@ -82,7 +96,7 @@ public class GameManager : MonoBehaviour
         string[] newHighScores = new string[topFiveBestTimes.Length];
         for(int i=0; i< newHighScores.Length; i++)
         {
-            newHighScores[i] = ConvertTimeToString(topFiveBestTimes[i]);
+            newHighScores[i] = topFiveBestTimes[i].ToString();
         }
 
         firebaseHandler.UploadData(newHighScores);

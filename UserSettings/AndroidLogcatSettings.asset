@@ -2,8 +2,8 @@
     "m_SelectedDeviceId": "RF8MC0822NE",
     "m_SelectedPackage": {
         "deviceId": "RF8MC0822NE",
-        "name": "com.DefaultCompany.space_survival",
-        "processId": 3711,
+        "name": "com.david.spacesurvivalmobile",
+        "processId": 16326,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -54,6 +54,18 @@
             "deviceId": "RF8MC0822NE",
             "name": "com.DefaultCompany.space_survival",
             "processId": 3711,
+            "exited": false
+        },
+        {
+            "deviceId": "RF8MC0822NE",
+            "name": "com.david.spacesurvivalmobile",
+            "processId": 9893,
+            "exited": false
+        },
+        {
+            "deviceId": "RF8MC0822NE",
+            "name": "com.david.spacesurvivalmobile",
+            "processId": 16326,
             "exited": false
         }
     ],
