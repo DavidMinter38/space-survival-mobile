@@ -10,8 +10,10 @@ public class GameManager : MonoBehaviour
     FirebaseHandler firebaseHandler;
 
     float newestTime = 0;
+    string[] topFiveUsernames = new string[] { "One", "Two", "Three", "Four", "Five" };
     float[] topFiveBestTimes = new float[] { 120, 90, 80, 60, 0 };
-    //TODO on startup, get the best times from a database.
+
+    string username = "newmember";
 
     bool highScoreAchieved = false;
 
@@ -45,18 +47,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-
-    }
-
     private void UpdateScoresFromDatabase()
     {
+        string[] newNames = firebaseHandler.GetNames();
         string[] newScores = firebaseHandler.GetScores();
         for (int i = 0; i < newScores.Length; i++)
         {
-            if (newScores[i] != null)
+            if (newNames[i] != null && newScores[i] != null)
             {
+                topFiveUsernames[i] = newNames[i];
                 topFiveBestTimes[i] = float.Parse(newScores[i]);
             }
         }
@@ -66,17 +65,21 @@ public class GameManager : MonoBehaviour
     {
         newestTime = FindObjectOfType<GameTimer>().GetTime();
         CompareTimes();
-        //TODO send high scores to database
         SceneManager.LoadScene(2);
     }
 
     private void CompareTimes()
     {
         float originalBestTime = 0;
+        string originalUsername = null;
         for (int i=0; i<topFiveBestTimes.Length; i++)
         {
             if (highScoreAchieved)
             {
+                string nameStorage = topFiveUsernames[i];
+                topFiveUsernames[i] = originalUsername;
+                originalUsername = nameStorage;
+
                 float timeStorage = topFiveBestTimes[i];
                 topFiveBestTimes[i] = originalBestTime;
                 originalBestTime = timeStorage;
@@ -85,6 +88,9 @@ public class GameManager : MonoBehaviour
             {
                 if (topFiveBestTimes[i] <= newestTime)
                 {
+                    originalUsername = topFiveUsernames[i];
+                    topFiveUsernames[i] = username;
+
                     //New high score
                     originalBestTime = topFiveBestTimes[i];
                     topFiveBestTimes[i] = newestTime;
@@ -93,13 +99,16 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        //Prepare high scores for database
+        string[] newNames = new string[topFiveBestTimes.Length];
         string[] newHighScores = new string[topFiveBestTimes.Length];
         for(int i=0; i< newHighScores.Length; i++)
         {
+            newNames[i] = topFiveUsernames[i];
             newHighScores[i] = topFiveBestTimes[i].ToString();
         }
 
-        firebaseHandler.UploadData(newHighScores);
+        firebaseHandler.UploadData(newNames, newHighScores);
     }
 
     public float GetNewestTime()
@@ -114,9 +123,24 @@ public class GameManager : MonoBehaviour
         return (minutes.ToString("00") + ":" + seconds.ToString("00"));
     }
 
+    public string[] GetBestNames()
+    {
+        return topFiveUsernames;
+    }
+
     public float[] GetBestTimes()
     {
         return topFiveBestTimes;
+    }
+
+    public string GetUsername()
+    {
+        return username;
+    }
+
+    public void UpdateUsername(string newUsername)
+    {
+        username = newUsername;
     }
 
     public bool WasHighScoreAchieved()

@@ -10,6 +10,7 @@ public class FirebaseHandler : MonoBehaviour
     FirebaseDatabase database;
     DatabaseReference reference;
 
+    string[] names = new string[5];
     string[] scores = new string[5];
 
     void Awake()
@@ -20,11 +21,13 @@ public class FirebaseHandler : MonoBehaviour
         database.GetReference("scores").ValueChanged += HandleValueChanged;
     }
 
-    public void UploadData(string[] newBestTimes)
+    public void UploadData(string[] newNames, string[] newBestTimes)
     {
-        reference.Child("scores").SetValueAsync(newBestTimes);
+        reference.Child("scores").Child("names").SetValueAsync(newNames);
+        reference.Child("scores").Child("times").SetValueAsync(newBestTimes);
     }
 
+    //Template for HandleValueChanged: https://firebase.google.com/docs/database/unity/retrieve-data#value-events
     void HandleValueChanged(object sender, ValueChangedEventArgs args)
     {
         if (args.DatabaseError != null)
@@ -35,8 +38,14 @@ public class FirebaseHandler : MonoBehaviour
         DataSnapshot snapshot = args.Snapshot;
         for(int i=0; i< scores.Length; i++)
         {
-            scores[i] = snapshot.Child(i.ToString()).GetValue(true).ToString();
+            names[i] = snapshot.Child("names").Child(i.ToString()).GetValue(true).ToString();
+            scores[i] = snapshot.Child("times").Child(i.ToString()).GetValue(true).ToString();
         }
+    }
+
+    public string[] GetNames()
+    {
+        return names;
     }
 
     public string[] GetScores()

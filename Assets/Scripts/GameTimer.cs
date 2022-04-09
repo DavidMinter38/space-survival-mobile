@@ -13,11 +13,6 @@ public class GameTimer : MonoBehaviour
     [SerializeField]
     Text timeText;
 
-    void Start()
-    {
-
-    }
-
 
     void Update()
     {
