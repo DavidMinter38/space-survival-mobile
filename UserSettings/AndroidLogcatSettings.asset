@@ -3,75 +3,63 @@
     "m_SelectedPackage": {
         "deviceId": "RF8MC0822NE",
         "name": "com.david.spacesurvivalmobile",
-        "processId": 31464,
+        "processId": 16085,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "RF8MC0822NE",
-            "name": "com.DefaultCompany.space_survival",
-            "processId": 29211,
-            "exited": true
-        },
-        {
-            "deviceId": "RF8MC0822NE",
-            "name": "com.DefaultCompany.space_survival",
-            "processId": 30127,
-            "exited": true
-        },
-        {
-            "deviceId": "RF8MC0822NE",
-            "name": "com.DefaultCompany.space_survival",
-            "processId": 30583,
-            "exited": true
-        },
-        {
-            "deviceId": "RF8MC0822NE",
-            "name": "com.DefaultCompany.space_survival",
-            "processId": 31358,
-            "exited": true
-        },
-        {
-            "deviceId": "RF8MC0822NE",
-            "name": "com.DefaultCompany.space_survival",
-            "processId": 1274,
-            "exited": true
-        },
-        {
-            "deviceId": "RF8MC0822NE",
-            "name": "com.DefaultCompany.space_survival",
-            "processId": 2775,
-            "exited": false
-        },
-        {
-            "deviceId": "RF8MC0822NE",
-            "name": "com.DefaultCompany.space_survival",
-            "processId": 3383,
-            "exited": false
-        },
-        {
-            "deviceId": "RF8MC0822NE",
-            "name": "com.DefaultCompany.space_survival",
-            "processId": 3711,
-            "exited": false
-        },
-        {
-            "deviceId": "RF8MC0822NE",
             "name": "com.david.spacesurvivalmobile",
             "processId": 9893,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "RF8MC0822NE",
             "name": "com.david.spacesurvivalmobile",
             "processId": 16326,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "RF8MC0822NE",
             "name": "com.david.spacesurvivalmobile",
             "processId": 31464,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8MC0822NE",
+            "name": "com.david.spacesurvivalmobile",
+            "processId": 8760,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8MC0822NE",
+            "name": "com.david.spacesurvivalmobile",
+            "processId": 9604,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8MC0822NE",
+            "name": "com.david.spacesurvivalmobile",
+            "processId": 10447,
+            "exited": false
+        },
+        {
+            "deviceId": "RF8MC0822NE",
+            "name": "com.david.spacesurvivalmobile",
+            "processId": 11074,
+            "exited": false
+        },
+        {
+            "deviceId": "RF8MC0822NE",
+            "name": "com.david.spacesurvivalmobile",
+            "processId": 11982,
+            "exited": false
+        },
+        {
+            "deviceId": "RF8MC0822NE",
+            "name": "com.david.spacesurvivalmobile",
+            "processId": 16085,
             "exited": false
         }
     ],

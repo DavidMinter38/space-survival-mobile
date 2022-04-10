@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         playerRigidBody.AddForce(new Vector2(Input.acceleration.x * speed * Time.deltaTime, Input.acceleration.y * speed * Time.deltaTime));
+        playerRigidBody.SetRotation(Mathf.Atan2(-Input.acceleration.x, Input.acceleration.y) * Mathf.Rad2Deg);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
