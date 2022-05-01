@@ -13,6 +13,8 @@ public class FirebaseHandler : MonoBehaviour
     string[] names = new string[5];
     string[] scores = new string[5];
 
+    bool newHighScores = false;
+
     void Awake()
     {
         database = FirebaseDatabase.GetInstance(url: "https://space-survival-mobile-default-rtdb.firebaseio.com/");
@@ -41,6 +43,7 @@ public class FirebaseHandler : MonoBehaviour
             names[i] = snapshot.Child("names").Child(i.ToString()).GetValue(true).ToString();
             scores[i] = snapshot.Child("times").Child(i.ToString()).GetValue(true).ToString();
         }
+        newHighScores = true;
     }
 
     public string[] GetNames()
@@ -51,6 +54,16 @@ public class FirebaseHandler : MonoBehaviour
     public string[] GetScores()
     {
         return scores;
+    }
+
+    public bool AreThereNewHighScores()
+    {
+        return newHighScores;
+    }
+
+    public void CollectedNewHighScores()
+    {
+        newHighScores = false;
     }
 
 }

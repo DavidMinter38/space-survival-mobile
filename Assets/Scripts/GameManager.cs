@@ -32,6 +32,15 @@ public class GameManager : MonoBehaviour
         firebaseHandler = gameObject.GetComponent<FirebaseHandler>();
     }
 
+    private void Update()
+    {
+        if (firebaseHandler.AreThereNewHighScores())
+        {
+            UpdateScoresFromDatabase();
+            firebaseHandler.CollectedNewHighScores();
+        }
+    }
+
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
